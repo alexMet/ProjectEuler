@@ -12,27 +12,23 @@ int main(void) {
     int i, j, a[N][N], m[N][N];
 
     for (i = 0; i < N; i++) {
-        for (j = 0; j < N-1; j++) {
-            m[i][j] = INT_MAX;
+        for (j = 0; j < N - 1; j++) {
             scanf("%d,", &a[i][j]);
-        }
-        scanf("%d", &a[i][N-1]);
-        m[i][N] = INT_MAX;	
+        }	
+        scanf("%d", &a[i][N - 1]);
     }
 
     m[0][0] = a[0][0];
-    for (int slice = 1; slice < 2 * N - 1; ++slice) {
-        int z = slice < N ? 0 : slice - N + 1;
-        for (int j = z; j <= slice - z; ++j) {
-
-            if ((slice - j) == 0)
-                m[j][slice - j] = m[j-1][slice-j] + a[j][slice-j];
-            else if (j == 0)
-                m[j][slice - j] = m[j][slice-j-1] + a[j][slice-j];
-            else
-                m[j][slice-j] = min(m[j-1][slice-j]+a[j][slice-j], m[j][slice-j-1]+a[j][slice-j]);
-
-            //printf("m[%d][%d]=%d ", j, slice-j, m[j][slice-j]);
+    for (i = 1; i < N; i++) {
+        m[i][0] = a[i][0] + m[i - 1][0];
+        m[0][i] = a[0][i] + m[0][i - 1];
+    }
+    
+    for (j = 1; j < N; j++) { 
+        for (i = 1; i < N; i++) {
+            int c = a[i][j];
+            m[i][j] = min(c + m[i][j - 1], c + m[i - 1][j]);
+            //printf("m[%d][%d]=%d ", i, j, m[i][j]);
         }
         //printf("\n");
     }
