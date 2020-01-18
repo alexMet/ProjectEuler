@@ -21,6 +21,23 @@ def primes_sieve2(limit):
                 a[n] = False
 
 
+def is_prime(n):
+    if n <= 3:
+        return n > 1
+    elif n % 2 == 0 or n % 3 == 0:
+        return False
+    else:
+        r = floor(sqrt(n))
+        f = 5
+
+        while f <= r:
+            if n % f == 0 or n % (f + 2) == 0:
+                return False
+            f += 6
+
+    return True
+
+
 def binary_search(l, value):
     low = 0
     high = len(l) - 1
