@@ -1,5 +1,3 @@
-#!/bin/python3
-
 def main():
     n = 1001
     half = n // 2
@@ -40,7 +38,9 @@ def main():
     s = -1
     for i in range(n):
         s += a[i][i] + a[i][n - i - 1]
-    print (s)
+
+    print(s)
+
 
 if __name__ == "__main__":
     main()
