@@ -6,7 +6,7 @@ from utils import *
 def main():
     evens = ['2', '4', '6', '8']
     nums = '7654321'
-    primes = [p for p in primes_sieve2(int(nums) + 2)]
+    primes = [p for p in sieve(int(nums) + 2)]
 
     for i in range(len(nums)):
         for p in permutations(nums[i:]):

@@ -2,7 +2,7 @@ from functools import reduce
 from math import floor, sqrt, ceil
 
 
-def isPalindrome(word):
+def is_palindrome(word):
     l = len(word)
     for i in range(ceil(l / 2)):
         if word[i] != word[l - i - 1]:
@@ -10,7 +10,7 @@ def isPalindrome(word):
     return True
 
 
-def primes_sieve2(limit):
+def sieve(limit):
     a = [True] * limit
     a[0] = a[1] = False
 
@@ -54,7 +54,7 @@ def binary_search(l, value):
     return -1
 
 
-def isPrime(primes, value):
+def in_primes(primes, value):
     return binary_search(primes, value) != -1
 
 

@@ -4,13 +4,13 @@ def isTruncatable(primes, p):
     str_p = str(p)
     l = len(str_p)
     for i in range(1, l):
-        if not (isPrime(primes, int(str_p[i:])) and isPrime(primes, int(str_p[:i]))):
+        if not (in_primes(primes, int(str_p[i:])) and in_primes(primes, int(str_p[:i]))):
             return False
 
     return True
 
 def main():
-    primes = [p for p in primes_sieve2(1000000)]
+    primes = [p for p in sieve(1000000)]
     total_sum = cnt = 0
 
     for p in primes[4:]:

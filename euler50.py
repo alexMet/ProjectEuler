@@ -1,4 +1,4 @@
-from utils import primes_sieve2, isPrime
+from utils import sieve, in_primes
 
 LIMIT = 10 ** 6
 
@@ -6,7 +6,7 @@ LIMIT = 10 ** 6
 def main():
     sums = []
     prime_sum = 0
-    primes = [p for p in primes_sieve2(LIMIT)]
+    primes = [p for p in sieve(LIMIT)]
 
     for p in primes:
         prime_sum += p
@@ -15,7 +15,7 @@ def main():
     maxlen = 0
     number = 0
     for index, s in enumerate(sums):
-        if s < LIMIT and isPrime(primes, s):
+        if s < LIMIT and in_primes(primes, s):
             maxlen = index
             number = s
 
@@ -25,7 +25,7 @@ def main():
             if sr >= LIMIT:
                 break
 
-            if isPrime(primes, sr):
+            if in_primes(primes, sr):
                 maxlen = index - i
                 number = sr
 

@@ -12,7 +12,7 @@ def conjecture_holds(primes, odd):
     return False
 
 def main():
-    primes = [p for p in primes_sieve2(MAX_N)][1:]
+    primes = [p for p in sieve(MAX_N)][1:]
     odd_composites = gen_odd_composites(primes)
 
     for odd in odd_composites:
