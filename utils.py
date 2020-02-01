@@ -116,3 +116,19 @@ def is_pentagonal(x):
 def is_hexagonal(x):
     n = (sqrt(8 * x + 1) + 1) / 4
     return n.is_integer()
+
+
+def champernowne_digit(n):
+    i = 0
+
+    while True:
+        start = 10 ** i
+        i += 1
+        digits = i * 9 * start
+
+        if n <= digits:
+            number = start + ceil(n / i) - 1
+            index = n % i
+            return int(str(number)[index - 1])
+
+        n -= digits
